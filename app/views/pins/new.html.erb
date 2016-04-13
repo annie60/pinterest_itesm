@@ -1,0 +1,9 @@
+<h1>New pin</h1>
+
+<%= form_for [@board, @pin] do |f| %>
+  <%= f.label :image, "Imagen" %><br />
+  <%= f.file_field :image %>
+
+  <br />
+  <%= f.submit "Save" %>
+<% end %>

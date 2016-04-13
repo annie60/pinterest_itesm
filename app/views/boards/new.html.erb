@@ -1,0 +1,18 @@
+<h1>New board</h1>
+
+<%= form_for @board do |f| %>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :tags_list %><br />
+    <%= f.text_field :tags_list %>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+
+<% end %>
