@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-ruby "2.2.3"
 
+gem "tzinfo-data"
 gem "rails", "4.2.1"
 gem "delayed_job_active_record"
 gem "jquery-rails"

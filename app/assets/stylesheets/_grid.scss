@@ -1,0 +1,59 @@
+$number-of-columns: 12;
+
+%grid-columns {
+  $base-width: 100 / $number-of-columns;
+  @for $i from 1 through $number-of-columns{
+      .col-#{$i} {
+          width: percentage($base-width * $i) / 100;
+      }
+  }
+    
+}
+%clearfix {
+&:before {
+  display: table;
+  content: "";
+}
+
+&:after {
+  clear: both;
+}
+}
+.clearfix {
+    @extend %clearfix;
+}
+.row {
+  @extend %grid-columns;
+  @extend %clearfix;
+  display: block;
+  text-rendering: optimizespeed;
+  
+  &.danger,
+  [class*="col-"].danger {
+   background: rgba(231, 76, 60, 0.8);
+  }
+  &.warning,
+  [class*="col-"].warning {
+   background: rgba(241, 196, 15, 0.8);
+  }
+  &.success,
+  [class*="col-"].success {
+   background: rgba(46, 204, 113, 0.8);
+  }
+  
+  
+}
+
+
+.row + .row{margin-top: 0.14286rem;}
+
+[class*="col-"]{
+  padding: 8px 8px 8px 0;
+  float: left;
+}
+
+[class*="col-"].border{
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
