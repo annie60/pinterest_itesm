@@ -1,0 +1,26 @@
+version: "2"
+volumes:
+        gems:
+            driver: local
+        db-data:
+            driver: local
+services:
+    web:
+        image: ruby:2.2.0
+        working_dir: /usr/src/pinterest
+        ports:
+            - 3000:3000
+        command: "bundle"
+        volumes:
+            - .:/usr/src/pinterest
+            - gems:/usr/local/bundle
+        links:
+            - db
+        environment:
+            DATABASE_URL: postgres://postgres:3x4mp13@db:5432/pinterest_dev
+    db:
+        image: postgres:9.5
+        volumes:
+            - db-data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_PASSWORD: 3x4mp13
